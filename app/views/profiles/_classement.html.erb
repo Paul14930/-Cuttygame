@@ -1,6 +1,21 @@
 <h2>Classement des profils :</h2>
-<ol>
+<ol class="mt-4 space-y-4">
+  <% count = 1 %>
   <% @sorted_profiles.each do |profile| %>
-    <li><%= profile.username %> - Score: <%= profile.score %></li>
+    <li class="flex items-center">
+      <div class="mr-4">
+        <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
+        <% if profile.photo.attached? %>
+          <%= image_tag(profile.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
+        <% else %>
+          <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+        <% end %>
+      </div>
+      <div>
+        <p class="text-lg font-semibold text-gray-900"><%= profile.username %></p>
+        <p class="text-sm text-gray-500"><%= profile.score %></p>
+      </div>
+    </li>
+    <% count += 1 %>
   <% end %>
 </ol>
