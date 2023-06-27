@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
+    @sorted_profiles = Profile.sorted_by_score
   end
 
   def show
@@ -36,6 +37,8 @@ class ProfilesController < ApplicationController
     @profile.destroy
     redirect_to profiles_url, notice: "Profile was successfully destroyed."
   end
+
+
 
   private
 

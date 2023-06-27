@@ -1,0 +1,6 @@
+<h2>Classement des profils :</h2>
+<ol>
+  <% @sorted_profiles.each do |profile| %>
+    <li><%= profile.username %> - Score: <%= profile.score %></li>
+  <% end %>
+</ol>
