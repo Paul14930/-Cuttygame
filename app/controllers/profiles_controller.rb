@@ -1,8 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @profiles = Profile.all
+    @sorted_profiles = Profile.sorted_by_score
   end
 
   def show
@@ -37,6 +39,7 @@ class ProfilesController < ApplicationController
     redirect_to profiles_url, notice: "Profile was successfully destroyed."
   end
 
+
   private
 
   def set_profile
@@ -44,6 +47,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :mail, :bio, :avatar)
+    params.require(:profile).permit(:username, :date_birth, :gender, :location, :orientation, :description, :user_id, :score, :title, :body, photos: [])
   end
 end
