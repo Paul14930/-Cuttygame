@@ -30,5 +30,6 @@ puts "element en seed"
   User.create(email: "user#{count}@example.com", password: "password#{count}")
 
   count += 1
+  
 end
 puts "seed fini"
