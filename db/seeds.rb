@@ -8,11 +8,11 @@
 require 'faker'
 require "open-uri"
 
-# puts "destruction profils"
-# Profile.destroy_all
-# puts "destruction users"
-# # Supprimer tous les enregistrements de la table 'users'
-# User.destroy_all
+puts "destruction profils"
+Profile.destroy_all
+puts "destruction users"
+# Supprimer tous les enregistrements de la table 'users'
+User.destroy_all
 
 # ...
 count = 1
@@ -20,6 +20,7 @@ puts "debut seed"
 20.times do
   file = URI.open("https://picsum.photos/200/300?random=1")
 puts "element en seed"
+user = User.create!(email: "user#{count}@example.com", password: "password#{count}")
   profil = Profile.new(
     username: Faker::Internet.username,
     date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
@@ -27,13 +28,13 @@ puts "element en seed"
     location: Faker::Address.city,
     orientation: Faker::Gender.type,
     description: Faker::Lorem.paragraphs.join("\n\n"),
-    user_id: count,
+    user_id: user.id,
     score: Faker::Number.between(from: 0, to: 10).to_f
   )
   profil.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   profil.save!
 
-  User.create!(email: "user#{count}@example.com", password: "password#{count}")
+
 
   count += 1
 
