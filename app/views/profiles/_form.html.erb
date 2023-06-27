@@ -1,0 +1,11 @@
+<!-- formulaire creation de Profil -->
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :username %>
+  <%= f.input :date_birth, as: :date %>
+  <%= f.input :gender %>
+  <%= f.input :location %>
+  <%= f.input :orientation %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :score %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
