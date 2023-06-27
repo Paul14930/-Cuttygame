@@ -21,7 +21,6 @@ puts "debut seed"
   file = URI.open("https://picsum.photos/200/300?random=1")
 puts "element en seed"
 user = User.create!(email: "user#{count}@example.com", password: "password#{count}")
-
   profil = Profile.new(
     username: Faker::Internet.username,
     date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
