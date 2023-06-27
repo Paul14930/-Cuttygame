@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_06_26_143824) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_225240) do
+>>>>>>> 0683c78b3332700636f4b0e69a6dc3628aa2d490
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +46,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_143824) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "games", force: :cascade do |t|
+    t.bigint "winner_id"
+    t.bigint "loser_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loser_id"], name: "index_games_on_loser_id"
+    t.index ["winner_id"], name: "index_games_on_winner_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "username"
     t.date "date_birth"
@@ -70,5 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_143824) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "games", "profiles", column: "loser_id"
+  add_foreign_key "games", "profiles", column: "winner_id"
   add_foreign_key "profiles", "users"
 end
