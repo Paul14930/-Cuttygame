@@ -1,11 +1,42 @@
 <!-- formulaire creation de Profil -->
 <%= simple_form_for @profile do |f| %>
-  <%= f.input :username %>
-  <%= f.input :date_birth, as: :date %>
-  <%= f.input :gender %>
-  <%= f.input :location %>
-  <%= f.input :orientation %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :score %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <div class="space-y-12">
+    <div class="border-b border-white/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-white">Profile</h2>
+      <p class="mt-1 text-sm leading-6 text-gray-400">This information will be displayed publicly so be careful what you share.</p>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <%= f.input :username, label: "Ton pseudo", class: "flex-1 border-0 bg-transparent py-1.5 pl-1 text-white focus:ring-0 sm:text-sm sm:leading-6", placeholder: "janesmith" %>
+        </div>
+        <div class="col-span-full">
+          <%= f.input :description, label: "Description", as: :text, rows: "3", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+          <p class="mt-3 text-sm leading-6 text-gray-400">Ecris quelques mots à ton propos.</p>
+        </div>
+        <div class="col-span-full">
+          <%= f.input :photo, label: "Photo", as: :file %>
+        </div>
+      </div>
+    </div>
+    <div class="border-b border-white/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-white">Informations personnelles</h2>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-3">
+          <%= f.input :date_birth, label: "Date de naissance", as: :date, class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+        </div>
+        <div class="sm:col-span-4">
+          <%= f.input :location, label: "Localisation", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+        </div>
+        <div class="sm:col-span-2 sm:col-start-1">
+          <%= f.input :gender, label: "Genre", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+        </div>
+        <div class="sm:col-span-2">
+          <%= f.input :orientation, label: "Orientation sexuelle", class: "block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 flex items-center justify-end gap-x-6">
+    <button type="button" class="text-sm font-semibold leading-6 text-white">Annuler</button>
+    <%= f.button :submit, "Envoyer", class: "btn btn-primary rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" %>
+  </div>
 <% end %>
