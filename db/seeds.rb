@@ -31,9 +31,9 @@ puts "element en seed"
     score: Faker::Number.between(from: 0, to: 10).to_f
   )
   profil.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-  profil.save
+  profil.save!
 
-  # User.create!(email: "user#{count}@example.com", password: "password#{count}")
+  User.create!(email: "user#{count}@example.com", password: "password#{count}")
 
   count += 1
 
