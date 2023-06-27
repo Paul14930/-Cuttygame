@@ -78,5 +78,4 @@ group :test do
   gem"faker"
 
 end
-
-gem "tailwindcss-rails"
+ gem "tailwindcss-rails"
