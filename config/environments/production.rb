@@ -9,6 +9,7 @@ Rails.application.configure do
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
+
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
@@ -45,6 +46,7 @@ Rails.application.configure do
   config.active_storage.service = :cloudinary
 
   # Mount Action Cable outside main process or domain.
+  
   # config.action_cable.mount_path = nil
   # config.action_cable.url = "wss://example.com/cable"
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
