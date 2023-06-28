@@ -24,7 +24,7 @@ user = User.create!(email: "user#{count}@example.com", password: "password#{coun
   profil = Profile.new(
     username: Faker::Internet.username,
     date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
-    gender: Faker::Gender.binary_type,
+    gender: "Homme",
     location: Faker::Address.city,
     orientation: "Homme",
     description: Faker::Lorem.paragraphs.join("\n\n"),
@@ -45,7 +45,7 @@ user = User.create!(email: "user#{count}@example.com", password: "password#{coun
   profil = Profile.new(
     username: Faker::Internet.username,
     date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
-    gender: Faker::Gender.binary_type,
+    gender: "Femme",
     location: Faker::Address.city,
     orientation: "Femme",
     description: Faker::Lorem.paragraphs.join("\n\n"),
