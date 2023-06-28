@@ -1,0 +1,55 @@
+<%= form_with(url: matchings_path, method: "post") do |form| %>
+  <!-- Champ caché pour l'ID du gagnant -->
+  <%= form.hidden_field :winner_id, value: @profile1.id %>
+  <!-- Champ caché pour l'ID du perdant -->
+  <%= form.hidden_field :loser_id, value: @profile2.id %>
+
+  <!-- En-tête du classement des profils -->
+  <h2 class="text-xl font-semibold text-gray-900">Classement des profils :</h2>
+
+  <!-- Début de la liste ordonnée pour les profils -->
+  <ol class="mt-4 space-y-4">
+    <% count = 1 %>
+    <li class="flex items-center <%= 'selected' if @profile1_selected %>">
+      <div class="mr-4">
+        <!-- Affiche le rang du premier profil -->
+        <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
+      </div>
+      <% if @profile1.photo.attached? %>
+        <!-- Si le premier profil a une photo, l'affiche -->
+        <%= image_tag(@profile1.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
+      <% else %>
+        <!-- Sinon, affiche un placeholder pour la photo -->
+        <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+      <% end %>
+      <div class="ml-4">
+        <!-- Affiche le nom d'utilisateur et le score du premier profil -->
+        <p class="text-lg font-semibold text-gray-900"><%= @profile1.username %> <%= @profile1.score %></p>
+        <!-- Champ de radio associé pour sélectionner le profil comme gagnant -->
+        <%= form.radio_button :winner_id, @profile1.id, class: 'profile-radio' %>
+      </div>
+    </li>
+    <% count += 1 %>
+    <li class="flex items-center <%= 'selected' if @profile2_selected %>">
+      <div class="mr-4">
+        <!-- Affiche le rang du deuxième profil -->
+        <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
+      </div>
+      <% if @profile2.photo.attached? %>
+        <!-- Si le deuxième profil a une photo, l'affiche -->
+        <%= image_tag(@profile2.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
+      <% else %>
+        <!-- Sinon, affiche un placeholder pour la photo -->
+        <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+      <% end %>
+      <div class="ml-4">
+        <!-- Affiche le nom d'utilisateur et le score du deuxième profil -->
+        <p class="text-lg font-semibold text-gray-900"><%= @profile2.username %> <%= @profile2.score %></p>
+        <!-- Champ associé pour sélectionner le profil comme gagnant -->
+        <%= form.radio_button :winner_id, @profile2.id, class: 'profile-radio' %>
+      </div>
+    </li>
+  </ol> <!-- Fin de la liste ordonnée pour les profils -->
+
+  <%= form.submit "Select as winner" %>
+<% end %>
