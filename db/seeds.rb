@@ -29,7 +29,7 @@ user = User.create!(email: "user#{count}@example.com", password: "password#{coun
     orientation: Faker::Gender.type,
     description: Faker::Lorem.paragraphs.join("\n\n"),
     user_id: user.id,
-    score: Faker::Number.between(from: 0, to: 10).to_f
+    score: Faker::Number.between(from: 2000, to: 2500).to_f
   )
   profil.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   profil.save!
