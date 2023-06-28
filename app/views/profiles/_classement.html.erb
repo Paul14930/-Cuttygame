@@ -1,58 +1,62 @@
-<h2 class="text-xl font-semibold text-gray-900">Classement des profils :</h2>
-
-<!-- Classement Hommes -->
-<h3 class="text-lg font-semibold text-gray-900">Classement Hommes :</h3>
-<ol class="mt-4 space-y-4">
-  <% count = 1 %>
-  <% @sorted_profiles.each do |profile| %>
-    <% if profile.gender == 'Homme' %>
-      <li class="flex items-center">
-        <div class="mr-4">
-          <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
-        </div>
-        <% if profile.photo.attached? %>
-          <%= image_tag(profile.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
-        <% else %>
-          <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+<div class="flex">
+  <div class="mr-8">
+    <!-- Classement Hommes -->
+    <h3 class="text-lg font-semibold text-gray-900">Classement Hommes :</h3>
+    <ol class="mt-4 space-y-4">
+      <% count = 1 %>
+      <% @sorted_profiles.each do |profile| %>
+        <% if profile.gender == 'Homme' %>
+          <li class="flex items-center">
+            <div class="mr-4">
+              <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
+            </div>
+            <% if profile.photo.attached? %>
+              <%= image_tag(profile.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
+            <% else %>
+              <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+            <% end %>
+            <div class="ml-4">
+              <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %></p>
+            </div>
+          </li>
+          <% count += 1 %>
         <% end %>
-        <div class="ml-4">
-          <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %></p>
-        </div>
-      </li>
-      <% count += 1 %>
-    <% end %>
-  <% end %>
-  <% if count == 1 %>
-    <li>Aucun profil Homme trouvé.</li>
-  <% end %>
-</ol>
+      <% end %>
+      <% if count == 1 %>
+        <li>Aucun profil Homme trouvé.</li>
+      <% end %>
+    </ol>
+  </div>
 
-<!-- Classement Femmes -->
-<h3 class="text-lg font-semibold text-gray-900">Classement Femmes :</h3>
-<ol class="mt-4 space-y-4">
-  <% count = 1 %>
-  <% @sorted_profiles.each do |profile| %>
-    <% if profile.gender == 'Femme' %>
-      <li class="flex items-center">
-        <div class="mr-4">
-          <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
-        </div>
-        <% if profile.photo.attached? %>
-          <%= image_tag(profile.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
-        <% else %>
-          <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+  <div>
+    <!-- Classement Femmes -->
+    <h3 class="text-lg font-semibold text-gray-900">Classement Femmes :</h3>
+    <ol class="mt-4 space-y-4">
+      <% count = 1 %>
+      <% @sorted_profiles.each do |profile| %>
+        <% if profile.gender == 'Femme' %>
+          <li class="flex items-center">
+            <div class="mr-4">
+              <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
+            </div>
+            <% if profile.photo.attached? %>
+              <%= image_tag(profile.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
+            <% else %>
+              <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+            <% end %>
+            <div class="ml-4">
+              <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %></p>
+            </div>
+          </li>
+          <% count += 1 %>
         <% end %>
-        <div class="ml-4">
-          <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %></p>
-        </div>
-      </li>
-      <% count += 1 %>
-    <% end %>
-  <% end %>
-  <% if count == 1 %>
-    <li>Aucun profil Femme trouvé.</li>
-  <% end %>
-</ol>
+      <% end %>
+      <% if count == 1 %>
+        <li>Aucun profil Femme trouvé.</li>
+      <% end %>
+    </ol>
+  </div>
+</div>
 <%# <div class="md:flex md:items-center md:justify-between md:space-x-5">
   <div class="flex items-start space-x-5">
     <div class="flex-shrink-0">

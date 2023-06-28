@@ -22,7 +22,7 @@ puts "debut seed"
 puts "element en seed Homme"
 user = User.create!(email: "user#{count}@example.com", password: "password#{count}")
   profil = Profile.new(
-    username: Faker::Internet.username,
+    username: Faker::Name.male_first_name,
     date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
     gender: "Homme",
     location: Faker::Address.city,
@@ -43,7 +43,7 @@ end
 puts "element en seed Femme"
 user = User.create!(email: "user#{count}@example.com", password: "password#{count}")
   profil = Profile.new(
-    username: Faker::Internet.username,
+    username: Faker::Name.female_first_name,
     date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
     gender: "Femme",
     location: Faker::Address.city,
