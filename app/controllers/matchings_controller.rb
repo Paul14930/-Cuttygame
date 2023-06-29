@@ -96,5 +96,4 @@ loser.update_division
     # Retourner les nouvelles valeurs de score
     [winner_new_rating, loser_new_rating]
   end
-
 end
