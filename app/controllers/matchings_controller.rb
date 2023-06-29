@@ -6,15 +6,36 @@ class MatchingsController < ApplicationController
   end
 
   def new
-    @sorted_profiles = Profile.sorted_by_score
+    # Prenez le genre opposé du profil actuel
+    opposite_gender = current_user.profile.gender == 'Homme' ? 'Femme' : 'Homme'
 
-    divisions = @sorted_profiles.each_slice(6).to_a
-    division1 = divisions.sample
-    division2 = (divisions - [division1]).sample
+    # Filtrer les profils par genre opposé
+    filtered_profiles = Profile.where(gender: opposite_gender).sorted_by_score
 
-    @profile1 = division1.sample
-    @profile2 = division2.sample
+    # Divisez les profils en divisions de taille 6
+    divisions = filtered_profiles.each_slice(6).to_a
+
+    # Calculez le score moyen pour chaque division
+    avg_scores = divisions.map { |division| division.sum(&:score) / division.size }
+
+    # Choisissez une division au hasard
+    first_division_index = rand(divisions.size)
+    @profile1 = divisions[first_division_index].sample
+
+    # Trouvez l'index de la division la plus proche en termes de score moyen, avec une différence de moins de 500
+    closest_division_index = avg_scores.each_with_index.min_by { |avg_score, index|
+      diff = (avg_score - avg_scores[first_division_index]).abs
+      diff < 500 && index != first_division_index ? diff : Float::INFINITY
+    }
+
+    if closest_division_index[0] < Float::INFINITY
+      @profile2 = divisions[closest_division_index[1]].sample
+    else
+      # Si aucune division n'a un score moyen à moins de 500 points, choisissez un profil au hasard
+      @profile2 = (filtered_profiles - [@profile1]).sample
+    end
   end
+
 
   def create
     # On récupère les profils du gagnant et du perdant à partir de leur ID
