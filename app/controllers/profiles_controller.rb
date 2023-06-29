@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @profiles = Profile.all
     @sorted_profiles = Profile.sorted_by_score
@@ -57,6 +58,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:username, :date_birth, :gender, :location, :orientation, :description, :user_id, :score, :title, :body, photos: [])
+    params.require(:profile).permit(:username, :date_birth, :gender, :location, :orientation, :description, :user_id, :score, :title, :body, :photo)
   end
 end
