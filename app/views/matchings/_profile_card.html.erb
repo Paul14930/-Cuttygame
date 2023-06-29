@@ -1,0 +1,11 @@
+<div class="flex flex-col items-center cursor-pointer" onclick="selectWinner('<%= profile.id %>')">
+  <% if profile.photo.attached? %>
+    <!-- Si le profil a une photo, l'affiche -->
+    <%= image_tag(profile.photo, class: "h-48 w-48 rounded-full bg-gray-50 object-cover") %>
+  <% else %>
+    <!-- Sinon, affiche un placeholder pour la photo -->
+    <span class="h-48 w-48 rounded-full bg-gray-50"></span>
+  <% end %>
+  <!-- Affiche le nom d'utilisateur et le score du profil -->
+  <p class="text-lg font-semibold text-gray-900 mt-4"><%= profile.username %> <%= profile.score %></p>
+</div>
