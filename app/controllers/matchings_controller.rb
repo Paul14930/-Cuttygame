@@ -8,7 +8,6 @@ class MatchingsController < ApplicationController
   def new
     @sorted_profiles = Profile.sorted_by_score
 
-    
     # Divisez les profils en divisions de taille 6
     divisions = @sorted_profiles.each_slice(6).to_a
 
