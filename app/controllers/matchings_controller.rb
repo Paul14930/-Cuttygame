@@ -6,10 +6,14 @@ class MatchingsController < ApplicationController
   end
 
   def new
-    @sorted_profiles = Profile.sorted_by_score
+    # Prenez le genre opposé du profil actuel
+    opposite_gender = current_user.profile.gender == 'Homme' ? 'Femme' : 'Homme'
+
+    # Filtrer les profils par genre opposé
+    filtered_profiles = Profile.where(gender: opposite_gender).sorted_by_score
 
     # Divisez les profils en divisions de taille 6
-    divisions = @sorted_profiles.each_slice(6).to_a
+    divisions = filtered_profiles.each_slice(6).to_a
 
     # Calculez le score moyen pour chaque division
     avg_scores = divisions.map { |division| division.sum(&:score) / division.size }
@@ -28,7 +32,7 @@ class MatchingsController < ApplicationController
       @profile2 = divisions[closest_division_index[1]].sample
     else
       # Si aucune division n'a un score moyen à moins de 500 points, choisissez un profil au hasard
-      @profile2 = (@sorted_profiles - [@profile1]).sample
+      @profile2 = (filtered_profiles - [@profile1]).sample
     end
   end
 
@@ -57,15 +61,7 @@ class MatchingsController < ApplicationController
 
   def update_ratings(winner, loser)
     score = 1
-
-    # Définir le K-factor en fonction du score
-    k_factor = if winner.score < 2100
-                 32
-               elsif winner.score.between?(2100, 1900)
-                 24
-               else
-                 16
-               end
+    k_factor = 32
 
     # Calculer les nouvelles valeurs de score
 
@@ -98,4 +94,22 @@ class MatchingsController < ApplicationController
     [winner_new_rating, loser_new_rating]
   end
 
+
+
 end
+
+#essaie en python avant que je le jette dans chat gpt et qu'il me chie
+#un truc en ruby qui fonctione la putain de sa mère
+# def update_ratings(winner, loser)
+#   score = 1
+#   k_factor = 32
+
+#   elo = PyCall.import_module(:elo)
+#   winner_new_rating, loser_new_rating = elo.calculate_ratings(winner.score, loser.score, score, k_factor)
+
+#   winner_new_rating = winner_new_rating.round(2)
+#   loser_new_rating = loser_new_rating.round(2)
+
+#   winner.update_columns(score: winner_new_rating)
+#   loser.update_columns(score: loser_new_rating)
+# end
