@@ -16,7 +16,7 @@
               <span class="h-12 w-12 rounded-full bg-gray-50"></span>
             <% end %>
             <div class="ml-4">
-              <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %></p>
+              <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %>xxx<%= profile.division %></p>
             </div>
           </li>
           <% count += 1 %>
@@ -45,8 +45,7 @@
               <span class="h-12 w-12 rounded-full bg-gray-50"></span>
             <% end %>
             <div class="ml-4">
-              <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %></p>
-            </div>
+              <p class="text-lg font-semibold text-gray-900"><%= profile.username %> <%= profile.score %>xxx<%= profile.division %></p>
           </li>
           <% count += 1 %>
         <% end %>
@@ -62,7 +61,6 @@
   function refreshPage() {
     location.reload(); // Rafraîchit la page
   }
-
   // Planifie le rafraîchissement toutes les 10 secondes (10000 ms)
   setTimeout(refreshPage, 2000);
 </script>

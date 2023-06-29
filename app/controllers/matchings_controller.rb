@@ -16,7 +16,7 @@ class MatchingsController < ApplicationController
     divisions = filtered_profiles.each_slice(6).to_a
 
     # Calculez le score moyen pour chaque division
-    avg_scores = divisions.map { |division| division.sum(&:score) / division.size }
+    avg_scores = divisions.map { |division| division.size.zero? ? 0 : division.sum(&:score) / division.size }
 
     # Choisissez une division au hasard
     first_division_index = rand(divisions.size)
@@ -85,31 +85,16 @@ class MatchingsController < ApplicationController
 
     # Mettre à jour les scores des profils dans la base de données
 
-    # Mettre à jour le score du gagnant
-    winner.update_columns(score: winner_new_rating)
-    # Mettre à jour le score du perdant
-    loser.update_columns(score: loser_new_rating)
-
+# Mettre à jour le score du gagnant
+winner.update_columns(score: winner_new_rating)
+# Mettre à jour le score du perdant
+loser.update_columns(score: loser_new_rating)
+# Mettre à jour la division du gagnant
+winner.update_division
+# Mettre à jour la division du perdant
+loser.update_division
     # Retourner les nouvelles valeurs de score
     [winner_new_rating, loser_new_rating]
   end
 
-
-
 end
-
-#essaie en python avant que je le jette dans chat gpt et qu'il me chie
-#un truc en ruby qui fonctione la putain de sa mère
-# def update_ratings(winner, loser)
-#   score = 1
-#   k_factor = 32
-
-#   elo = PyCall.import_module(:elo)
-#   winner_new_rating, loser_new_rating = elo.calculate_ratings(winner.score, loser.score, score, k_factor)
-
-#   winner_new_rating = winner_new_rating.round(2)
-#   loser_new_rating = loser_new_rating.round(2)
-
-#   winner.update_columns(score: winner_new_rating)
-#   loser.update_columns(score: loser_new_rating)
-# end
