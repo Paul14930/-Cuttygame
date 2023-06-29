@@ -26,5 +26,5 @@ class Profile < ApplicationRecord
       # Mettez à jour la division du profil
       profile.update_columns(division: current_division_index)
     end
-end
+  end
 end
