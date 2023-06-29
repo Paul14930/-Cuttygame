@@ -6,7 +6,6 @@ ruby "3.1.2"
 #add-on
 #gem 'pycall'
 gem 'elo_rating'
-gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
 

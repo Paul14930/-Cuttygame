@@ -76,6 +76,9 @@
         <div>
           <%= f.input :photo, label: "Photo", as: :file , class: "w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm", placeholder: "janesmith" %>
         </div>
+        <div>
+          <%= f.input :score, as: :hidden, input_html: { value: 2500 } %>
+        </div>
 
         <div class="flex items-center justify-between">
           <button type="button" class="text-sm font-semibold leading-6 text-white">Annuler</button>
@@ -87,10 +90,7 @@
   </div>
 
   <div class="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
-    <img
-      alt="Welcome"
-      src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-      class="absolute inset-0 h-full w-full object-cover"
-    />
+
+    <%= image_tag("image_sign-in.jpg", class:"absolute inset-0 h-full w-full object-cover") %>
   </div>
 </section>
