@@ -29,7 +29,8 @@ user = User.create!(email: "user#{count}@example.com", password: "password#{coun
     orientation: "Homme",
     description: Faker::Lorem.paragraphs.join("\n\n"),
     user_id: user.id,
-    score: Faker::Number.between(from: 2000, to: 2500).to_f
+    score: Faker::Number.between(from: 2000, to: 2500).to_f,
+    division: 1
   )
   profil.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   profil.save
@@ -50,7 +51,8 @@ user = User.create!(email: "user#{count}@example.com", password: "password#{coun
     orientation: "Femme",
     description: Faker::Lorem.paragraphs.join("\n\n"),
     user_id: user.id,
-    score: Faker::Number.between(from: 2000, to: 2500).to_f
+    score: Faker::Number.between(from: 2000, to: 2500).to_f,
+    division: 1
   )
   profil.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   profil.save
