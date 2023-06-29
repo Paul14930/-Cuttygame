@@ -106,7 +106,7 @@ user = User.create!(email: "user#{count}@example.com", password: "password#{coun
   puts "Destruction users"
   User.destroy_all
 
-  # ...
+  # ... 
 
   count = 1
   puts "Début seed"
