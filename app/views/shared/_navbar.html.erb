@@ -25,29 +25,17 @@
         </button>
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-      <%= link_to root_path do  %>
         <div class="flex flex-shrink-0 items-center">
-          <%= image_tag("cutygame-blanc.png", class:"block h-32 w-auto lg:hidden") %>
-          <%= image_tag("cutygame-blanc.png", class:"hidden h-32 w-auto lg:block") %>
-        </div> <% end %>
+          <%= image_tag("cutygame-dore.png", class:"block h-16 w-auto lg:hidden") %>
+          <%= image_tag("cutygame-dore.png", class:"hidden h-16 w-auto lg:block") %>
+        </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
-        <% if user_signed_in? %>
-      <% if current_user.profile %>
-        <%= link_to "Edit Profile", edit_profile_path(current_user.profile), class:"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"  %>
-      <% else %>
-        <%= link_to "Create Profile", new_profile_path, class:"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" %>
-      <% end %>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" %>
-    <% else %>
-      <%= link_to "Login", new_user_session_path, class:"bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"  %>
-    <% end %>
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-
-            <%# <a href= "" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" >Ton profile</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Hunting Board</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Concours</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">C'est qui le plus beau/belle</a> %>
+            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
           </div>
         </div>
       </div>
