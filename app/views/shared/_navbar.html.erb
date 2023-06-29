@@ -60,14 +60,14 @@
         <div class="relative ml-3">
 
 
-              <span class="sr-only">Open user menu</span>
+              <%# <span class="sr-only">Open user menu</span>
               <% if current_user && current_user.profile.photo.attached? %>
-              <%= image_tag(current_user.profile.photo, class: "h-8 w-8 rounded-full") %>
-            <% else %>
+              <%# <%= image_tag(current_user.profile.photo, class: "h-8 w-8 rounded-full") %>
+            <%# <% else %>
               <!-- Sinon, affiche un placeholder pour la photo -->
-              <%= image_tag("cutygame-blanc.png", class:"h-16 w-16 rounded-full") %>
-            <% end %>
-          </div>
+              <%# <%= image_tag("cutygame-blanc.png", class:"h-16 w-16 rounded-full") %>
+            <%# <% end %>
+          <%# </div> %>
 
           <!--
             Dropdown menu, show/hide based on menu state.
