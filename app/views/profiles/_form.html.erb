@@ -77,6 +77,9 @@
         <div>
           <%= f.input :photo, label: "Photo", as: :file , class: "w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm", placeholder: "janesmith" %>
         </div>
+        <div>
+          <%= f.input :score, as: :hidden, input_html: { value: 2500 } %>
+        </div>
 
         <div class="flex items-center justify-between">
           <button type="button" class="text-sm font-semibold leading-6 text-white">Annuler</button>
