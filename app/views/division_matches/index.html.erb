@@ -1,0 +1,8 @@
+<h1>Vos correspondances de division</h1>
+
+<% @matches.each do |match| %>
+  <div>
+    <h2><%= match.username %></h2>
+    <p>Genre: <%= match.gender %></p>
+  </div>
+<% end %>
