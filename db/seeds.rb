@@ -1,3 +1,10 @@
+
+require "faker"
+
+puts "Destruction profils"
+Profile.destroy_all
+puts "Destruction users"
+User.destroy_all
  count = 1
   puts "Début seed"
 
