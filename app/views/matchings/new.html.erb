@@ -5,42 +5,32 @@
   <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
     <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
       <div class="flex">
-        <%# <img class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt=""> %>
-            <% if current_user && current_user.profile.photo.attached? %>
-              <%= image_tag(current_user.profile.photo, class: "h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32") %>
-            <% else %>
-              <!-- Sinon, affiche un placeholder pour la photo -->
-              <span class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"></span>
-            <% end %>
-
+        <% if current_user && current_user.profile.photo.attached? %>
+          <%= image_tag(current_user.profile.photo, class: "h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32") %>
+        <% else %>
+          <span class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"></span>
+        <% end %>
       </div>
       <div class="mt-6 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
         <div class="mt-6 min-w-0 flex-1 sm:hidden md:block">
-          <%# <h1 class="truncate text-2xl font-bold text-gray-900">Ricardo Cooper</h1> %>
           <% if current_user %>
-  <h1 class="truncate text-2xl font-bold text-gray-900"><%= current_user.profile.username %></h1>
-<% end %>
+            <h1 class="truncate text-2xl font-bold text-gray-900"><%= current_user.profile.username %></h1>
+          <% end %>
         </div>
         <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-x-4 sm:space-y-0">
-          <button type="button" class="inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-            <svg class="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
-              <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+
+          <%= link_to division_matches_path, class: "inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" do %>
+            <svg class="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.579 2 3.675 8.247 4.665 13.496C3.718 14.682 3 16.253 3 18C3 21.314 5.686 24 9 24H15C18.314 24 21 21.314 21 18C21 16.253 20.282 14.682 19.335 13.496C20.325 8.247 17.421 2 12 2ZM15 22H9C6.794 22 5 20.206 5 18C5 17.362 5.264 16.798 5.733 16.435C6.403 17.445 8.11 18 10 18C10 19.103 10.897 20 12 20C13.103 20 14 19.103 14 18C15.89 18 17.597 17.445 18.267 16.435C18.736 16.798 19 17.362 19 18C19 20.206 17.206 22 15 22Z"/>
             </svg>
-            <span>Message</span>
-          </button>
-          <button type="button" class="inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-            <svg class="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd" />
-            </svg>
-            <span>Call</span>
-          </button>
+            <span>Hunting Board</span>
+          <% end %>
         </div>
       </div>
     </div>
-    <div class="mt-6 hidden min-w-0 flex-1 sm:block md:hidden">
+    <%# <div class="mt-6 hidden min-w-0 flex-1 sm:block md:hidden">
       <h1 class="truncate text-2xl font-bold text-gray-900">Ricardo Cooper</h1>
-    </div>
+    </div> %>
   </div>
 </div>
 
@@ -51,7 +41,7 @@
   <%= form.hidden_field :loser_id %>
 
   <!-- En-tête du classement des profils -->
-  <h2 class="text-xl font-semibold text-gray-900">Choose the best</h2>
+  <%# <h2 class="text-xl font-semibold text-gray-900">Choose the best</h2> %>
 
   <!-- Début de la liste ordonnée pour les profils -->
   <div class="flex justify-center space-x-8 mt-6">
@@ -67,5 +57,4 @@ function selectWinner(winnerId) {
   document.querySelector('input[name="loser_id"]').value = loserId;
   document.querySelector('form').submit();
 }
-
 </script>

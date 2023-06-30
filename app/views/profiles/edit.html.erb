@@ -1,15 +1,14 @@
-<h1>Edit Profile</h1>
 
 <%= render 'form', profile: @profile %>
-<%= simple_form_for @profile do |f| %>
+<%# <%= simple_form_for @profile do |f| %>
   <!-- Insert your form fields here -->
   <!-- For example: -->
-  <div>
+  <%# <div>
     <%= f.input :username, label: "Ton pseudo", class: "w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm", placeholder: "janesmith" %>
-  </div>
+  <%# </div>
   <!-- And so on for the rest of your fields -->
 
   <div class="actions">
     <%= f.submit %>
-  </div>
+  <%# </div>
 <% end %>
