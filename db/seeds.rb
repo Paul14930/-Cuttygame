@@ -1,11 +1,8 @@
-
 require 'faker'
-
 puts "Destruction profils"
 Profile.destroy_all
 puts "Destruction users"
 User.destroy_all
-
 prenom_homme = [
   "Damien", "Christoph", "Olivier", "William", "Jonathan", "Greg", "Virgil", "Christof", "Anan-Jules",
   "Baptiste", "Paul", "PAUL2", "Mazen", "Bastien", "Mathieu", "Kevin", "Jean-Francois", "Léo", "Loic",
@@ -17,7 +14,6 @@ prenom_homme = [
   "Romain", "Alexy", "Louis", "Axel2", "Naceur", "Mickael", "Ingo", "Alexandru", "Sliman", "Mathieu3",
   "Pierre-Ange", "Basile", "Hadrien", "Tanguy", "Jamal"
 ]
-
 prenom_femme = [
   "Marion", "Veronika", "Elena", "Kahina", "Barbara", "Violette", "Camille", "Valeria", "Lou-Salome",
   "Lila", "Nino", "Karyna", "Marilou", "Morgane", "Alexia", "Alice", "Melanie", "Sophie", "MARION",
@@ -37,7 +33,6 @@ description_femme = [
   "Je suis une amatrice de thé, une grande fan de lecture et j'ai un talent caché pour le chant. Si tu cherches une vie pleine de douceur et de mélodies, je suis celle qu'il te faut.",
   "Je suis une passionnée de voyages, une grande fan de sports nautiques et j'ai une passion pour la photographie. Si tu cherches quelqu'un qui aime l'aventure, je suis celle qu'il te faut."
 ]
-
 description_homme = [
   "Amateur de fromages rares, je peux passer des heures à discuter de la texture du camembert. En dehors de ça, je suis un super-héros à mes heures perdues et j'apprécie une bonne tasse de thé à minuit.",
   "Je suis un passionné de romans de science-fiction, un adepte de la sieste et je peux préparer des pâtes comme personne. Mon but dans la vie ? Trouver le meilleur tiramisu au monde.",
@@ -50,15 +45,11 @@ description_homme = [
   "Je suis un passionné de musique classique, un amateur de yoga et je peux faire un Rubik's Cube en moins de deux minutes. Si tu cherches quelqu'un qui peut te défier, je suis là.",
   "Je suis un amoureux de la nature, un fan de comédies musicales et j'ai un talent caché pour le dessin. Si tu cherches quelqu'un pour partager des moments inoubliables, je pourrais être ton homme."
 ]
-
-
   count = 1
   puts "Début seed"
-
   80.times do
     puts "Element en seed Homme"
     user = User.create!(email: "#{prenom_homme[count]}@.com", password: "123456")
-
     profil = Profile.new(
       username: prenom_homme[count],
       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
@@ -70,21 +61,16 @@ description_homme = [
       score: Faker::Number.between(from: 2000, to: 3000).to_f,
       division: rand(1..6)
     )
-
     file = File.open(Rails.root.join('seed_images', "H#{count}.jpg"))
     profil.photo.attach(io: file, filename: "H#{count}.jpg", content_type: 'image/jpeg')
     profil.save
-
     count += 1
   end
   puts "seed finis"
-
   count = 1
-
   40.times do
     puts "Element en seed Femme"
     user = User.create!(email: "#{prenom_femme[count]}@example.com", password: "123456")
-
       profil = Profile.new(
         username: prenom_femme[count],
       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
@@ -99,7 +85,6 @@ description_homme = [
      file = File.open(Rails.root.join('seed_images', "F#{count}.jpg"))
      profil.photo.attach(io: file, filename: "F#{count}.jpg", content_type: 'image/jpeg')
      profil.save
-
     count += 1
   end
   puts "seed finis"

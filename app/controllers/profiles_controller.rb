@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
+    @profile.score = 2500
     if @profile.save!
       redirect_to @profile, notice: "Profile was successfully created."
     else
@@ -25,6 +26,9 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    # @profile = Profile.find(params[:id])
+    # @profile = @profile.update(profile_params)
+    # redirect_to @profile, notice: "Profile was successfully updated."
   end
 
 
@@ -32,12 +36,6 @@ class ProfilesController < ApplicationController
   def destroy
     @profile.destroy
     redirect_to profiles_url, notice: "Profile was successfully destroyed."
-  end
-
-  private
-
-  def set_profile
-    @profile = Profile.find(params[:id])
   end
 
   def update
@@ -48,6 +46,12 @@ class ProfilesController < ApplicationController
       render :edit
     end
   end
+  private
+
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
+
 
   def update_score(profile)
 
@@ -68,8 +72,11 @@ class ProfilesController < ApplicationController
     # Trier les profils par score croissant
     sorted_profiles = non_null_profiles.sort_by(&:score)
 
-    # Divisez les profils en divisions de taille 6
-    divisions = sorted_profiles.each_slice(6).to_a
+    # Calculer le nombre de profils par division
+    profiles_per_division = (sorted_profiles.size / 6.0).ceil
+
+    # Divisez les profils en divisions
+    divisions = sorted_profiles.each_slice(profiles_per_division).to_a
 
     # Calculez le score moyen pour chaque division
     avg_scores = divisions.map do |division|
@@ -79,8 +86,4 @@ class ProfilesController < ApplicationController
 
     return divisions, avg_scores
   end
-
-
-
-
 end

@@ -59,6 +59,7 @@ class MatchingsController < ApplicationController
     end
   end
 
+
   def update_ratings(winner, loser)
     score = 1
     k_factor = 32
@@ -96,5 +97,4 @@ loser.update_division
     # Retourner les nouvelles valeurs de score
     [winner_new_rating, loser_new_rating]
   end
-
-end
+  end
