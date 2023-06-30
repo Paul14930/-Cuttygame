@@ -99,7 +99,8 @@
     <div class="space-y-1 flex-col-reverse px-2 pb-3 pt-2 bg-pink-900 hidden"data-target="navmob.navmob" >
        <% if user_signed_in? %>
       <% if current_user.profile %>
-        <%= link_to "Editer Ton Profile", edit_profile_path(current_user.profile), class:" border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
+        <%= link_to "Classement", profiles_path(current_user.profile), class:" border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
+          <%= link_to "Mon Profil", profile_path(current_user.profile.id), class:" border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
         <%= link_to "The game", new_matching_path(current_user.profile), class:"border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
         <%= link_to "Hunting Board", division_matches_path(current_user.profile), class:" border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
       <% else %>
