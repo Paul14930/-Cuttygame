@@ -51,7 +51,7 @@ description_homme = [
     puts "Element en seed Homme"
     user = User.create!(email: "#{prenom_homme[count-1]}@cuty.com", password: "123456")
     profil = Profile.new(
-      username: prenom_homme[count],
+      username: prenom_homme[count-1],
       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
       gender: "Homme",
       location: Faker::Address.city,
@@ -72,7 +72,7 @@ description_homme = [
     puts "Element en seed Femme"
     user = User.create!(email: "#{prenom_femme[count-1]}@cuty.com", password: "123456")
       profil = Profile.new(
-        username: prenom_femme[count],
+        username: prenom_femme[count-1],
       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
       gender: "Femme",
       location: Faker::Address.city,
