@@ -16,7 +16,7 @@ prenom_homme = [
 ]
 prenom_femme = [
   "Marion", "Veronika", "Elena", "Kahina", "Barbara", "Violette", "Camille", "Valeria", "Lou-Salome",
-  "Lila", "Nino", "Karyna", "Marilou", "Morgane", "Alexia", "Alice", "Melanie", "Sophie", "MARION",
+  "Lila", "Nino", "Karyna", "Marilou", "Morgane", "Alexia", "Alice", "Melanie", "Sophie", "MARION2",
   "Diana", "Angela", "Sabah", "Celine", "Martina", "Elisa", "Thi-Thang", "SILVIA", "Alexandra",
   "Kelly", "Silvia2", "Cleo", "Anna", "Ekaterina", "Emmanuelle", "Stephanie", "Katja", "Yasmine",
   "Anne-Sophie", "Valentine", "Pauline", "Clarisse", "Audrey"
@@ -49,7 +49,7 @@ description_homme = [
   puts "Début seed"
   80.times do
     puts "Element en seed Homme"
-    user = User.create!(email: "#{prenom_homme[count]}@.com", password: "123456")
+    user = User.create!(email: "#{prenom_homme[count-1]}@cuty.com", password: "123456")
     profil = Profile.new(
       username: prenom_homme[count],
       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
@@ -70,7 +70,7 @@ description_homme = [
   count = 1
   40.times do
     puts "Element en seed Femme"
-    user = User.create!(email: "#{prenom_femme[count]}@example.com", password: "123456")
+    user = User.create!(email: "#{prenom_femme[count-1]}@cuty.com", password: "123456")
       profil = Profile.new(
         username: prenom_femme[count],
       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
