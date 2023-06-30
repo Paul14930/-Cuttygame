@@ -79,8 +79,4 @@ class ProfilesController < ApplicationController
 
     return divisions, avg_scores
   end
-
-
-
-
 end

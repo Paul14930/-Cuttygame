@@ -57,17 +57,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
           </svg>
           </div> %>
-        <div class="relative ml-3">
-
-
-              <span class="sr-only">Open user menu</span>
-              <% if current_user && current_user.profile.photo.attached? %>
-              <%= image_tag(current_user.profile.photo, class: "h-8 w-8 rounded-full") %>
-            <% else %>
-              <!-- Sinon, affiche un placeholder pour la photo -->
-              <%= image_tag("cutygame-blanc", class:"h-16 w-16 rounded-full") %>
-            <% end %>
-          </div>
+       
 
           <!--
             Dropdown menu, show/hide based on menu state.
@@ -98,9 +88,9 @@
       <% if current_user.profile %>
         <%= link_to "Edit Profile", edit_profile_path(current_user.profile), class:"bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"  %>
       <% else %>
-        <%= link_to "Create Profile", new_profile_path, class:"bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" %>
+        <%= link_to "Créer Ton Profil", new_profile_path, class:"bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" %>
       <% end %>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" %>
+      <%= link_to "Déconnexion", destroy_user_session_path, "data-turbo-frame": "main", "data-turbo-method": "delete", class:"bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" %>
     <% else %>
       <%= link_to "Login", new_user_session_path, class:"bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"  %>
     <% end %>
