@@ -1,6 +1,6 @@
 <div>
   <div>
-    <img class="h-32 w-full object-cover lg:h-48" src="https://images.unsplash.com/photo-1444628838545-ac4016a5418a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="">
+    <img class="sm-hidden flex h-32 w-full object-cover lg:h-48" src="https://images.unsplash.com/photo-1444628838545-ac4016a5418a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt=""  id="mobile-menu">
   </div>
   <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
     <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
@@ -19,18 +19,11 @@
         </div>
         <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-x-4 sm:space-y-0">
 
-          <%= link_to division_matches_path, class: "inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" do %>
-            <svg class="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.579 2 3.675 8.247 4.665 13.496C3.718 14.682 3 16.253 3 18C3 21.314 5.686 24 9 24H15C18.314 24 21 21.314 21 18C21 16.253 20.282 14.682 19.335 13.496C20.325 8.247 17.421 2 12 2ZM15 22H9C6.794 22 5 20.206 5 18C5 17.362 5.264 16.798 5.733 16.435C6.403 17.445 8.11 18 10 18C10 19.103 10.897 20 12 20C13.103 20 14 19.103 14 18C15.89 18 17.597 17.445 18.267 16.435C18.736 16.798 19 17.362 19 18C19 20.206 17.206 22 15 22Z"/>
-            </svg>
-            <span>Hunting Board</span>
-          <% end %>
+         <%= link_to "Hunting Board", division_matches_path(current_user.profile), class:"hover:text-pink-500 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium "  %>
         </div>
       </div>
     </div>
-    <%# <div class="mt-6 hidden min-w-0 flex-1 sm:block md:hidden">
-      <h1 class="truncate text-2xl font-bold text-gray-900">Ricardo Cooper</h1>
-    </div> %>
+
   </div>
 </div>
 
