@@ -8,6 +8,8 @@ class Profile < ApplicationRecord
     order(score: :desc)
   end
 
+  
+
   def update_division
     # Obtenez tous les profils
     profiles = Profile.all
