@@ -59,18 +59,17 @@
           <div class="absolute inset-y-0 right-0 flex  pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <button type="button" class="rounded-full bg-gray-900 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
 
-        <% if user_signed_in? %>
-
-        <%if current_user.profile.photo.attached?%>
-        <%= link_to edit_profile_path(current_user.profile) do %>
-        <%= image_tag(current_user.profile.photo, class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12")  %>
-        <% end %>
-        <% else %>
-        <%= image_tag("cutygame-blanc.png", class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
-          <% end %>
-          <% else %>
-            <%= image_tag("cutygame-blanc.png", class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
-            <%end %>
+<% if user_signed_in? %>
+  <% if current_user.profile && current_user.profile.photo.attached? %>
+    <%= link_to edit_profile_path(current_user.profile) do %>
+      <%= image_tag(current_user.profile.photo, class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
+    <% end %>
+  <% else %>
+    <%= image_tag("cutygame-blanc.png", class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
+  <% end %>
+<% else %>
+  <%= image_tag("cutygame-blanc.png", class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
+<% end %>
 
 
           <!--
