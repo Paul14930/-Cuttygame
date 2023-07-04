@@ -17,8 +17,8 @@
 
     <%= yield %>
 
-   
+<% unless controller_name == "chatrooms" %>
  <%= render partial: "pages/footer" %>
-
+<% end %>
   </body>
 </html>
