@@ -1,67 +1,266 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page</title>
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    <!-- Inclure la feuille de style de Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    <style>
+        .bg-white {
+            background-color: #ffffff;
+        }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+        .dark:bg-gray-900 {
+            background-color: #1f2937;
+        }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
+        .container {
+            width: 100%;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .min-h-screen {
+            min-height: 100vh;
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .py-12 {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .text-blue-500 {
+            color: #3b82f6;
+        }
+
+        .dark:text-blue-400 {
+            color: #93c5fd;
+        }
+
+        .mt-3 {
+            margin-top: 0.75rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .text-gray-800 {
+            color: #1f2937;
+        }
+
+        .dark:text-white {
+            color: #ffffff;
+        }
+
+        .md:text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .text-gray-500 {
+            color: #6b7280;
+        }
+
+        .dark:text-gray-400 {
+            color: #9ca3af;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+
+        .gap-x-3 > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.75rem * calc(1 - var(--tw-space-x-reverse))) !important;
+            margin-left: calc(0.75rem * var(--tw-space-x-reverse)) !important;
+        }
+
+        .w-1/2 {
+            width: 50%;
+        }
+
+        .px-5 {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-gray-700 {
+            color: #4b5563;
+        }
+
+        .transition-colors {
+            transition-property: color, background-color, border-color;
+        }
+
+        .duration-200 {
+            transition-duration: 200ms;
+        }
+
+        .bg-white {
+            background-color: #ffffff;
+        }
+
+        .border {
+            border-width: 1px;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .sm:w-auto {
+            width: auto;
+        }
+
+        .dark:hover:bg-gray-800:hover {
+            background-color: #1e293b;
+        }
+
+        .dark:text-gray-200 {
+            color: #edf2f7;
+        }
+
+        .dark:border-gray-700 {
+            border-color: #374151;
+        }
+
+        .w-5 {
+            width: 1.25rem;
+        }
+
+        .h-5 {
+            height: 1.25rem;
+        }
+
+        .rtl\:rotate-180 {
+            transform: rotate(-180deg);
+        }
+
+        .stroke-current {
+            stroke: currentColor;
+        }
+
+        .stroke-1_5 {
+            stroke-width: 1.5;
+        }
+
+        .round {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .text-white {
+            color: #ffffff;
+        }
+
+        .tracking-wide {
+            letter-spacing: 0.025em;
+        }
+
+        .bg-blue-500 {
+            background-color: #3b82f6;
+        }
+
+        .shrink-0 {
+            flex-shrink: 0;
+        }
+
+        .hover:bg-blue-600:hover {
+            background-color: #2563eb;
+        }
+
+        .dark:hover:bg-blue-500:hover {
+            background-color: #2563eb;
+        }
+
+        .dark:bg-blue-600 {
+            background-color: #3b82f6;
+        }
+    </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+<body>
+    <section class="bg-white dark:bg-gray-900 ">
+        <div class="container flex items-center min-h-screen px-6 py-12 mx-auto">
+            <div>
+                <p class="text-sm font-medium text-blue-500 dark:text-blue-400">404 error</p>
+                <h1 class="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">We can’t find that
+                    page</h1>
+                <p class="mt-4 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for doesn't exist or
+                    has been moved.</p>
+
+                <div class="flex items-center mt-6 gap-x-3">
+                    <button
+                        class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:rotate-180">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                        </svg>
+
+                        <span>Go back</span>
+                    </button>
+
+                    <button
+                        class="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                        Take me home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
