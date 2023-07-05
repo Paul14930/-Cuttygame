@@ -1,13 +1,13 @@
-<div class="flex">
+<div class="flex justify-center h-screen ">
   <div class="mr-8">
     <!-- Classement Hommes -->
     <h3 class="text-lg font-semibold text-gray-900">Classement Hommes :</h3>
-    <ol class="mt-4 space-y-4">
+    <ol class="mt-4 space-y-4 ">
       <% count = 1 %>
       <% @sorted_profiles.each do |profile| %>
         <% if profile.gender == 'Homme' %>
-          <li class="flex items-center <%= 'bg-red-100 border-red-500 border-2 shadow-lg rounded-md p-2' if profile == current_user.profile %>">
-            <div class="mr-4">
+          <li class="flex items-center  <%= 'bg-red-100 border-red-500 border-2 shadow-lg rounded-md p-2' if profile == current_user.profile %>">
+            <div class="mr-4 " >
               <p class="text-lg font-semibold text-gray-700">#<%= count %></p>
             </div>
             <% if profile.photo.attached? %>
