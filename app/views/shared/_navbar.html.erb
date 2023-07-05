@@ -39,6 +39,7 @@
           <%= link_to "Hunting Board", division_matches_path(current_user.profile), class:"hover:text-pink-500 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium "  %>
           <%= link_to "Classement", profiles_path(current_user.profile), class:" hover:text-pink-500 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium "  %>
           <%= link_to "Mon Profil", profile_path(current_user.profile.id), class:" hover:text-pink-500 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium "  %>
+          <%= link_to "The Chat", chatrooms_path(), class:" hover:text-pink-500 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium "  %>
       <% else %>
         <%= link_to "Creer un Profile", new_profile_path, class:" hover:text-pink-500 bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" %>
       <% end %>
@@ -102,6 +103,7 @@
           <%= link_to "Mon Profil", profile_path(current_user.profile.id), class:" border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
         <%= link_to "The game", new_matching_path(current_user.profile), class:"border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
         <%= link_to "Hunting Board", division_matches_path(current_user.profile), class:" border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium"  %>
+        <%= link_to "The Chat", chatrooms_path(), class:"border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium" %>
       <% else %>
         <%= link_to "Créer Ton Profil", new_profile_path, class:"border border-solid border-2 border-black-500 text-white block rounded-md px-3 m-1 py-3 text-base font-medium" %>
       <% end %>

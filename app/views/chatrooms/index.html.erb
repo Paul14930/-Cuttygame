@@ -1,0 +1,27 @@
+<ul role="list" class="divide-y divide-gray-100">
+  <% @chatrooms.each do |chat| %>
+
+  <li class="flex gap-x-4 py-5">
+  <%= link_to chatroom_path(chat.other_user(current_user)) do %>
+  <% if chat.other_user(current_user).profile.photo.attached? %>
+      <%= image_tag(chat.other_user(current_user).profile.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
+      <% else %>
+        <span class="h-12 w-12 rounded-full bg-gray-50"></span>
+      <% end %>
+    <div class="flex-auto">
+      <div class="flex items-baseline justify-between gap-x-4">
+        <p class="text-sm font-semibold leading-6 text-gray-900"><%= chat.other_user(current_user).profile.username  %></p>
+        <p class="flex-none text-xs text-gray-600">
+          <time datetime="2023-03-04T15:54Z">  </time>
+        </p>
+      </div>
+      <p class="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">
+      <% if chat.messages.present? && chat.messages.last.content.present? %>
+      <%= chat.messages.last.content  %>
+      <% else %>
+      Nouveau message ici
+      <% end %></p>
+    </div>
+    <% end %>
+  </li>
+  <% end %>
