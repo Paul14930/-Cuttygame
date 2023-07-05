@@ -1,0 +1,5 @@
+meta_name: "jeu de rencontre en ligne et classement"
+meta_title: "Cutygame - jeu de rencontre en ligne et classement"
+meta_description: "classe tes amis et les autres, rencontre des personnes de ta categorie"
+meta_image: "cutygame-blanc.png" # should exist in `app/assets/images/`
+# twitter_account: "@your_twitter_account"   # required for Twitter Cards

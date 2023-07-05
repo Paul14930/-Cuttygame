@@ -4,4 +4,7 @@ class ApplicationController < ActionController::Base
     new_profile_path
     raise
   end
+  def default_url_options
+    { host: ENV["https://www.cutygame.com"] || "localhost:3000" }
+  end
 end
