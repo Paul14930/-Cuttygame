@@ -17,9 +17,9 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
-    @profile.score = 2500
+    @profile.score = 3500
     if @profile.save!
-      redirect_to @profile, notice: "Profile was successfully created."
+      redirect_to @profile,  notice: "Profile was successfully created."
     else
       render :new
     end
