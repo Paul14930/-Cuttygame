@@ -42,7 +42,7 @@
     <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
     <% @matches.each do |match| %>
       <li class="flex flex-col">
-        <%= cl_image_tag(match.photo, class: "aspect-[3/2] w-full rounded-2xl object-cover") %>
+        <%= cl_image_tag(match.photo.key, class: "aspect-[3/2] w-full rounded-2xl object-cover") %>
         <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900"><%= match.username %> </h3>
          <p class="text-base leading-7 text-gray-600 flex-grow">description: <%= match.description %></p>
         <ul role="list" class="mt-6 flex gap-x-6">
