@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     @profile.score = 3500
     if @profile.save!
-      redirect_to @profile,  notice: "Profile was successfully created."
+      redirect_to new_matching_path,  notice: "Profile was successfully created."
     else
       render :new
     end
@@ -41,7 +41,7 @@ class ProfilesController < ApplicationController
   def update
     if @profile.update(profile_params)
       update_score(@profile)
-      redirect_to @profile, notice: "Profile was successfully updated."
+      redirect_to new_matching_path, notice: "Profile was successfully updated."
     else
       render :edit
     end
