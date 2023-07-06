@@ -4,7 +4,7 @@
   <li class="flex gap-x-4 py-5">
   <%= link_to chatroom_path(chat.other_user(current_user)) do %>
   <% if chat.other_user(current_user).profile.photo.attached? %>
-      <%= image_tag(chat.other_user(current_user).profile.photo, class: "h-12 w-12 rounded-full bg-gray-50") %>
+      <%= cl_image_tag(chat.other_user(current_user).profile.photo.key, class: "h-12 w-12 rounded-full bg-gray-50") %>
       <% else %>
         <span class="h-12 w-12 rounded-full bg-gray-50"></span>
       <% end %>

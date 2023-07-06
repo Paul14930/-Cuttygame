@@ -63,7 +63,7 @@
 <% if user_signed_in? %>
   <% if current_user.profile && current_user.profile.photo.attached? %>
     <%= link_to edit_profile_path(current_user.profile) do %>
-      <%= image_tag(current_user.profile.photo, class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
+      <%= cl_image_tag(current_user.profile.photo.key, class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
     <% end %>
   <% else %>
     <%= image_tag("cutygame-blanc.png", class:"flex items-center justify-center rounded-full overflow-hidden h-12 w-12") %>
