@@ -1,0 +1,18 @@
+{
+  "background_color": "white",
+  "description": utygame est le meilleur jeu qui classe par la loi des grands nombre et qui vous permet de faire des rencontres avec des gens de votre categorie",
+  "display": "fullscreen",
+  "name": "Cutygame",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
+
