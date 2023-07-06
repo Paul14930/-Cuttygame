@@ -1,12 +1,17 @@
 <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <div class="flex justify-center items-center text-white-900 bg-black-800 py-8">
-    <h1 class="text-2xl font-bold text-white-900 bg-black-800">
+  <div class="flex  justify-center items-center text-white-900 bg-black-800 py-8">
+  <div class="">
+    <h1 class="text-2xl font-bold text-white-900 bg-black-800 flex">
       <% if current_user == User.find(@chatroom.user_1_id) %>
         Conversation avec <%= Profile.find_by(user_id: @chatroom.user_2_id).username %>
+        <%= cl_image_tag(Profile.find_by(user_id: @chatroom.user_2_id).photo.key, class: "h-12 w-12 rounded-full bg-gray-50")  %>
       <% else %>
         Conversation avec <%= Profile.find_by(user_id: @chatroom.user_1_id).username %>
+        <%= cl_image_tag(Profile.find_by(user_id: @chatroom.user_1_id).photo.key, class: "h-12 w-12 rounded-full bg-gray-50 ml-2")  %>
+
       <% end %>
     </h1>
+  </div>
   </div>
 
   <div class="flex justify-center mt-25">
