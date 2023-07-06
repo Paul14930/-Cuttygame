@@ -1,6 +1,6 @@
 require 'faker'
 puts "Destruction profils"
-# Chatroom.destroy_all
+Chatroom.destroy_all
 Profile.destroy_all
 puts "Destruction users"
 User.destroy_all

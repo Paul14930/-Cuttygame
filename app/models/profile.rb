@@ -9,7 +9,7 @@ class Profile < ApplicationRecord
   end
 
   def update_division
-    # Obtenez tous les profils
+    # Obtenez tous les profils 
     profiles = Profile.all
 
     # Parcourez chaque profil
