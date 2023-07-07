@@ -6,10 +6,8 @@ export default class extends Controller {
   static targets = ["messages", "toto"]
 
   insertMessageAndScrollDown(data) {
-    const form = this.element.querySelector("form");
-    form.insertAdjacentHTML("beforebegin", data);
-    form.reset();
-    form.querySelector("textarea").focus();
+    this.messagesTarget.insertAdjacentHTML("afterbegin", data);
+    this.messagesTarget.firstElementChild.scrollIntoView({ behavior: "smooth", block: "start" });
     console.log(this.messagesTarget.scrollHeight);
   }
 
